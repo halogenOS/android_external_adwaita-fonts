@@ -1,0 +1,32 @@
+// SPDX-FileCopyrightText: The halogenOS Project
+// SPDX-License-Identifier: Apache-2.0
+
+package {
+    default_applicable_licenses: ["external_adwaita-fonts_license"],
+}
+
+license {
+    name: "external_adwaita-fonts_license",
+    visibility: [":__subpackages__"],
+    license_kinds: ["SPDX-license-identifier-OFL-1.1"],
+    license_text: ["LICENSE"],
+}
+
+android_app {
+    name: "AdwaitaSansFontPackage",
+    defaults: ["custom_font_package_defaults"],
+    assets: [":adwaita_sans_font_package_assets"],
+}
+
+genrule {
+    name: "adwaita_sans_font_package_assets",
+    defaults: ["custom_font_package_assets_defaults"],
+    srcs: [
+        "sans/AdwaitaSans-Regular.ttf",
+        "sans/AdwaitaSans-Italic.ttf",
+    ],
+    out: [
+        "fonts/AdwaitaSans-Regular.ttf",
+        "fonts/AdwaitaSans-Italic.ttf",
+    ],
+}
